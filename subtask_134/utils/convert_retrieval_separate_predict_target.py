@@ -130,7 +130,7 @@ def convert_json_to_flattened(
 					visual_objects = prev_turn[FIELDNAME_SYSTEM_STATE][
 						"act_attributes"
 					]["objects"]
-					context += represent_visual_objects(visual_objects) + " "
+					# context += represent_visual_objects(visual_objects) + " "
 
 			context += f"User : {user_uttr}"
 			prev_asst_uttr = asst_uttr
