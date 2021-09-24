@@ -30,7 +30,9 @@ To train our models, we create a new folder with the input is only of context (p
 That results the following folder
 
 ```
-data/preprocess/output_1_3_4_input_response_only
+mkdir data/preprocess/output_1_3_4_input_response_only
+cp data/preprocess/output_1_3_4_input_response_meta/*_target.txt data/preprocess/output_1_3_4_input_response_only 
+cp data/preprocess/response_only/*_predict.txt data/preprocess/output_1_3_4_input_response_only
 ```
 
 For retrieval task, we run the following code
