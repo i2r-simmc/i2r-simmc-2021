@@ -11,7 +11,7 @@ The two models are trained and evaluated separately. Please refer to folder `sub
 
 For Sub-Task 2, TBA
 
-So far our results are as followings:
+So far our results for devtest set are as followings:
 
 | Sub-Task 1 | Accuracy |
 | :------: | :------: |
