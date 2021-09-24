@@ -12,13 +12,13 @@ and merge 2 folders `simmc2_scene_images_dstc10_public_part1` and `simmc2_scene_
 
 For 2 models, we use 2 process files.
 ```
-PREPROCESS_SPLIT=train ./preprocess_data.sh
-PREPROCESS_SPLIT=dev ./preprocess_data.sh
-PREPROCESS_SPLIT=devtest ./preprocess_data.sh
+PREPROCESS_SPLIT=train bash ./preprocess_data.sh
+PREPROCESS_SPLIT=dev bash ./preprocess_data.sh
+PREPROCESS_SPLIT=devtest bash ./preprocess_data.sh
 
-PREPROCESS_SPLIT=train ./preprocess_data_134.sh
-PREPROCESS_SPLIT=dev ./preprocess_data_134.sh
-PREPROCESS_SPLIT=devtest ./preprocess_data_134.sh
+PREPROCESS_SPLIT=train bash ./preprocess_data_134.sh
+PREPROCESS_SPLIT=dev bash ./preprocess_data_134.sh
+PREPROCESS_SPLIT=devtest bash ./preprocess_data_134.sh
 ```
 After running above scripts, we would have two folders: 
 ```
@@ -26,7 +26,7 @@ data/preprocess/response_only
 data/preprocess/output_1_3_4_input_response_meta
 ```
 
-To train our models, we create a new folder with the input is only of context and output is the combined string of Sub-Task 1,3,4.
+To train our models, we create a new folder with the input is only of context (predict files from `data/preprocess/response_only`) and output is the combined string of Sub-Task 1,3,4 (target files from `data/preprocess/output_1_3_4_input_response_meta`).
 That results the following folder
 
 ```
@@ -35,7 +35,7 @@ data/preprocess/output_1_3_4_input_response_only
 
 For retrieval task, we run the following code
 ```
-./run_preprocess_gpt2_retrieval_separate_predict_target.sh
+bash ./run_preprocess_gpt2_retrieval_separate_predict_target.sh
 ```
 # Train and Inference:
 For the multitask model, we run as followings:
@@ -46,7 +46,7 @@ export SIMMC_DATA_DIR=data/preprocess
 export SIMMC_SAVE_DIR=model
 export BATCH_SIZE=24
 export EXP_MODE="train,generation"
-./train_bart_multiple_settings.sh
+bash ./train_bart_multiple_settings.sh
 ```
 
 For Sub-Task 4 retrieval, we run as followings:
