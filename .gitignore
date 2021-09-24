@@ -1,1 +1,4 @@
 .idea
+data/preprocess/*/*.txt
+data/preprocess/*/*.json
+data/original
