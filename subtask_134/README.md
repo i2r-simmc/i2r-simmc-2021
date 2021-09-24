@@ -2,7 +2,8 @@
 This is the code for Sub-Task #1, Sub-Task #3 , Sub-Task #4
 
 # Installation
-pip install -r requirements.txt
+Our code works in python 3.7
+`pip install -r requirements.txt`
 
 # Prepare Data:
 Copy all data from https://github.com/facebookresearch/simmc2/tree/master/data to ./data/original/
