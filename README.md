@@ -11,6 +11,11 @@ The two models are trained and evaluated separately. Please refer to folder `sub
 
 For Sub-Task 2, TBA
 
+## Important Links
+
+* [Instructions for Sub-Tasks 1, 3, and 4](subtask_134/README.md)
+
+
 So far our results for devtest set are as followings:
 
 | Sub-Task 1 | Accuracy |
