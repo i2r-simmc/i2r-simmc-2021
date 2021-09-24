@@ -32,10 +32,9 @@ python3 -m preprocess_input_retrieval_separate_predict_target \
     --output_path_target="${PATH_DIR}"/simmc2_dials_dstc10_devtest_target.txt \
     --len_context=2 --no_belief_states\
     --use_multimodal_contexts=1 \
-    --input_path_special_tokens="${PATH_DIR}"/simmc2_special_tokens.json \
     --output_path_special_tokens="${PATH_DIR}"/simmc2_special_tokens.json \
     --input_path_retrieval="${PATH_DATA_DIR}"/simmc2_dials_dstc10_devtest_retrieval_candidates.json \
     --output_path_retrieval="${PATH_DIR}"/simmc2_dials_dstc10_devtest_retrieval_candidates.txt \
     --output_path_src_retrieval="${PATH_DIR}"/simmc2_dials_dstc10_devtest_src_retrieval_candidates.txt \
     --output_path_ground_true="${PATH_DIR}"/simmc2_dials_dstc10_devtest_retrieval_ground_true.json \
-    --output_path_dialog_turn_id="${PATH_DIR}"/simmc2_dials_dstc10_devtest_dialog_turn_id.json \
+    --output_path_dialog_turn_id="${PATH_DIR}"/simmc2_dials_dstc10_devtest_dialog_turn_id.json
