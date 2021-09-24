@@ -77,7 +77,7 @@ For the ground true files, we need to include `simmc2_dials_dstc10_devtest.json`
 python generate_submission_format_disambiguator_134.py \ 
 --dialog_turn_id_json_path output_134/simmc2_dials_dstc10_devtest_dialog_turn_id.json \ 
 --generated_text_path output_134/predictions.txt \
---output_submission_format_path output_134/disambigator_submission_format.json
+--output_submission_format_path output_134/dstc10-simmc-devtest-pred-subtask-1.json
 ```
 
 **For subtask 3**
@@ -86,7 +86,7 @@ python generate_submission_format_disambiguator_134.py \
 python generate_submission_format_belief_state_134.py \
 --dialog_turn_id_json_path output_134/simmc2_dials_dstc10_devtest_dialog_turn_id.json \
 --generated_text_path output_134/predictions.txt \
---output_submission_format_path output_134/belief_submission_format.json
+--output_submission_format_path output_134/dstc10-simmc-devtest-pred-subtask-3.json
 ```
 
 **For subtask 4 (Generation)**
@@ -95,7 +95,7 @@ python generate_submission_format_belief_state_134.py \
 python generate_submission_format_generation_134.py \
 --dialog_turn_id_json_path output_134/simmc2_dials_dstc10_devtest_dialog_turn_id.json \
 --generated_text_path output_134/predictions.txt \
---output_submission_format_path output_134/generation_submission_format.json
+--output_submission_format_path output_134/dstc10-simmc-devtest-pred-subtask-4-generation.json
 ```
 
 **For subtask 4 (Retrieval)**
@@ -104,21 +104,21 @@ python generate_submission_format_generation_134.py \
 python generate_submission_format_retrieval.py \
 --dialog_turn_id_json_path output_134/simmc2_dials_dstc10_devtest_dialog_turn_id.json \
 --model_flat_score_path output_134/devtest_retrieval_scores.txt \
---output_submission_format_path output_134/retrieval_submission_format.json
+--output_submission_format_path output_134/dstc10-simmc-devtest-pred-subtask-4-retrieval.json
 ```
 # Evaluation:
 **For subtask 1**
 ```
 python utils/disambiguator_evaluation.py \
 --data_json_path output_134/simmc2_dials_dstc10_devtest.json \
---model_result_path output_134/disambigator_submission_format.json
+--model_result_path output_134/dstc10-simmc-devtest-pred-subtask-1.json
 ```
 
 **For subtask 3**
 ```
 python utils/evaluate_dst.py \
 --input_path_target output_134/simmc2_dials_dstc10_devtest.json \
---input_path_predicted output_134/belief_submission_format.json
+--input_path_predicted output_134/dstc10-simmc-devtest-pred-subtask-3.json
 ```
 
 **For subtask 4 (Generation)**
@@ -126,7 +126,7 @@ python utils/evaluate_dst.py \
 ```
  python utils/response_evaluation.py \
  --data_json_path output_134/simmc2_dials_dstc10_devtest.json \
- --model_response_path output_134/generation_submission_format.json \
+ --model_response_path output_134/dstc10-simmc-devtest-pred-subtask-4-generation.json \
  --single_round_evaluation
 ```
 
@@ -135,7 +135,7 @@ python utils/evaluate_dst.py \
 ```
 python utils/retrieval_evaluation.py \
 --retrieval_json_path output_134/simmc2_dials_dstc10_devtest_retrieval_candidates.json \
---model_score_path output_134/retrieval_submission_format.json \
+--model_score_path output_134/dstc10-simmc-devtest-pred-subtask-4-retrieval.json \
 --single_round_evaluation
 ```
 Currently, there are some issues with official evaluation scripts https://github.com/facebookresearch/simmc2/issues/40
