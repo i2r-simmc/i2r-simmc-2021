@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #!/usr/bin/env bash
 PREPROCESS_SPLIT="${PREPROCESS_SPLIT:-train}"
-export DATA_DIR=data/original/
+export DATA_DIR=data/original
 export OUTPUT_DIR="./data"
 
 export Input_Dialogue="${DATA_DIR}/simmc2_dials_dstc10_${PREPROCESS_SPLIT}.json"

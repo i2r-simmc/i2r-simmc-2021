@@ -7,6 +7,8 @@ Our code works in python 3.7
 
 # Prepare Data:
 Copy all data from https://github.com/facebookresearch/simmc2/tree/master/data to ./data/original/
+and merge 2 folders `simmc2_scene_images_dstc10_public_part1` and `simmc2_scene_images_dstc10_public_part2` into `simmc2_scene_images_dstc10_public`
+
 
 For 2 models, we use 2 process files.
 ```
@@ -31,7 +33,7 @@ That results the following folder
 data/preprocess/output_1_3_4_input_response_only
 ```
 
-For retreival task, we run the following code
+For retrieval task, we run the following code
 ```
 run_preprocess_gpt2_retrieval_separate_predict_target.sh
 ```
