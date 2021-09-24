@@ -1,0 +1,4 @@
+nltk
+numpy
+torch==1.6.0
+transformers==4.5.1
