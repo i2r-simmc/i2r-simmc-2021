@@ -35,7 +35,7 @@ data/preprocess/output_1_3_4_input_response_only
 
 For retrieval task, we run the following code
 ```
-run_preprocess_gpt2_retrieval_separate_predict_target.sh
+./run_preprocess_gpt2_retrieval_separate_predict_target.sh
 ```
 # Train and Inference:
 For the multitask model, we run as followings:
