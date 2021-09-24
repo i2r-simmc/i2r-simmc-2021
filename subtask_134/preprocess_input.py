@@ -42,8 +42,10 @@ TEMPLATE_TARGET = (
 )
 
 # No belief state predictions and target.
-TEMPLATE_PREDICT_NOBELIEF = "{context} {START_BELIEF_STATE}"
-TEMPLATE_TARGET_NOBELIEF = "{response} {END_OF_SENTENCE}"
+TEMPLATE_PREDICT_NOBELIEF = "{context}"
+# TEMPLATE_PREDICT_NOBELIEF = "{context} {START_BELIEF_STATE}"
+# TEMPLATE_TARGET_NOBELIEF = "{response} {END_OF_SENTENCE}"
+TEMPLATE_TARGET_NOBELIEF = "{response}"
 
 
 def represent_visual_objects(object_ids):
@@ -256,7 +258,7 @@ if __name__ == "__main__":
         "--use_multimodal_contexts",
         help="determine whether to use the multimodal contexts each turn",
         type=int,
-        default=1,
+        default=0,
     )
     parser.add_argument(
         "--no_belief_states",

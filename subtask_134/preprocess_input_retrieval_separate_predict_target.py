@@ -43,7 +43,7 @@ if __name__ == "__main__":
         "--use_multimodal_contexts",
         help="determine whether to use the multimodal contexts each turn",
         type=int,
-        default=1,
+        default=0,
     )
     parser.add_argument(
         "--no_belief_states",
