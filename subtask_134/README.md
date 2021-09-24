@@ -138,4 +138,5 @@ python utils/retrieval_evaluation.py \
 --model_score_path output_134/dstc10-simmc-devtest-pred-subtask-4-retrieval.json \
 --single_round_evaluation
 ```
-Currently, there are some issues with official evaluation scripts https://github.com/facebookresearch/simmc2/issues/40
+Currently, there are some issues with official evaluation scripts (need to verify)
+https://github.com/facebookresearch/simmc2/issues/40
