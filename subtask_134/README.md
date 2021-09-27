@@ -64,11 +64,12 @@ python train_bart.py --data_dir $RESPONSE_ONLY_DATA_DIR \
 # Generate Output for Retrieval
 ```
 export RETRIEVAL_DATA_DIR=data/preprocess/retrieval_data
-export RETRIEVAL_OUTPUT_DIR=$model/output_4_input_response_only/retrieval
+export RETRIEVAL_OUTPUT_DIR=model/output_4_input_response_only/retrieval
 python generate_bart_retrieval_score.py --data_dir $RETRIEVAL_DATA_DIR \
 --output_dir $RETRIEVAL_OUTPUT_DIR \
 --model_name_or_path ${RESPONSE_ONLY_SAVE_DIR}/
 ```
+
 The above scripts train and generate the outputs of devtest set in flat text file.
 Here we put it in folder `output_134` for further evaluation.
 
@@ -79,11 +80,20 @@ from preprocessing for retrieval task above.
 
 For the ground true files, we need to include `simmc2_dials_dstc10_devtest.json` and `simmc2_dials_dstc10_devtest_retrieval_candidates.json`
 
+```
+mkdir output_134
+cp model/output_1_3_4_input_response_only/predictions/predictions.txt output_134/ 
+cp model/output_4_input_response_only/retrieval/retrieval_scores.txt output_134/devtest_retrieval_scores.txt
+cp data/preprocess/retrieval_data/simmc2_dials_dstc10_devtest_dialog_turn_id.json output_134
+cp data/original/simmc2_dials_dstc10_devtest.json output_134/ 
+cp data/original/simmc2_dials_dstc10_devtest_retrieval_candidates.json output_134/ 
+```
+
 # Convert Output to Submission Format
 **For subtask 1**
 ```
-python generate_submission_format_disambiguator_134.py \ 
---dialog_turn_id_json_path output_134/simmc2_dials_dstc10_devtest_dialog_turn_id.json \ 
+python generate_submission_format_disambiguator_134.py \
+--dialog_turn_id_json_path output_134/simmc2_dials_dstc10_devtest_dialog_turn_id.json \
 --generated_text_path output_134/predictions.txt \
 --output_submission_format_path output_134/dstc10-simmc-devtest-pred-subtask-1.json
 ```
