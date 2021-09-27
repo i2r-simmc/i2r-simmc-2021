@@ -67,7 +67,7 @@ export RETRIEVAL_DATA_DIR=data/preprocess/retrieval
 export RETRIEVAL_OUTPUT_DIR=$model/output_4_input_response_only/retrieval
 python generate_bart_retrieval_score.py --data_dir $RETRIEVAL_DATA_DIR \
 --output_dir $RETRIEVAL_OUTPUT_DIR \
---model_name_or_path $RESPONSE_ONLY_SAVE_DIR
+--model_name_or_path ${RESPONSE_ONLY_SAVE_DIR}/
 ```
 The above scripts train and generate the outputs of devtest set in flat text file.
 Here we put it in folder `output_134` for further evaluation.
