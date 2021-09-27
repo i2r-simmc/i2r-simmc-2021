@@ -96,7 +96,7 @@ def prediction_step(model, inputs, loss_fn, loss_fn2, pad_tokens, prediction_los
 # 				line = clean_up_text(line, tokenizer.eos_token)
 # 				f.write(line + "\n")
 
-def eval_score_retrieval(model, args, test_dataset, data_collator, tokenizer, config):
+def eval_score_retrieval(model, args, test_dataset, data_collator, tokenizer, pad_token_id=1):
     os.makedirs(args.output_dir, exist_ok=True)
 
     test_sampler = SequentialSampler(test_dataset)
@@ -118,14 +118,14 @@ def eval_score_retrieval(model, args, test_dataset, data_collator, tokenizer, co
     logger.info("***** Running Reranking *****")
     logger.info("  Num examples = %d", num_examples)
     logger.info("  Batch size = %d", batch_size)
-    loss_fn = torch.nn.CrossEntropyLoss(ignore_index=config.pad_token_id, reduction='none')
-    loss_fn2 = torch.nn.CrossEntropyLoss(ignore_index=config.pad_token_id)
+    loss_fn = torch.nn.CrossEntropyLoss(ignore_index=pad_token_id, reduction='none')
+    loss_fn2 = torch.nn.CrossEntropyLoss(ignore_index=pad_token_id)
     test_loss = []
     with open(os.path.join(args.output_dir, "retrieval_scores.txt"), "w") as f:
         model.eval()
         for step, inputs in enumerate(tqdm(test_dataloader, desc="Generation")):
 
-            loss = prediction_step(model, inputs, loss_fn,loss_fn2, config.pad_token_id)
+            loss = prediction_step(model, inputs, loss_fn,loss_fn2, pad_token_id)
             test_loss.extend(loss.tolist())
             # test_loss.append(loss.item())
             # logits = (batch, seq len)
@@ -154,7 +154,7 @@ if __name__ == '__main__':
     args.n_gpu = 1
 
     # init model
-    config = AutoConfig.from_pretrained(args.model_name_or_path)
+    # config = AutoConfig.from_pretrained(args.model_name_or_path)
     tokenizer = BartTokenizer.from_pretrained(args.model_name_or_path)
     print("Vocab size:", len(tokenizer))
 
@@ -170,4 +170,4 @@ if __name__ == '__main__':
     data_collator = SimmcDataCollator(tokenizer)
 
     # generate
-    eval_score_retrieval(model, args, test_dataset, data_collator, tokenizer, config)
+    eval_score_retrieval(model, args, test_dataset, data_collator, tokenizer, pad_token_id=1)
