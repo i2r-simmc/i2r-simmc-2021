@@ -164,8 +164,8 @@ if __name__ == '__main__':
         model = model.module
     # model.load_state_dict(torch.load(args.model_name_or_path+"pytorch_model.bin"))
     # init dataset
-    test_src_file = os.path.join(args.data_dir, "retrieval_devtest_predict.txt")
-    test_tgt_file = os.path.join(args.data_dir, "retrieval_devtest_target.txt")
+    test_src_file = os.path.join(args.data_dir, "simmc2_dials_dstc10_devtest_src_retrieval_candidates.txt")
+    test_tgt_file = os.path.join(args.data_dir, "simmc2_dials_dstc10_devtest_retrieval_candidates.txt")
     test_dataset = SimmcDataset(tokenizer, test_src_file, test_tgt_file, prefix=model.config.prefix or "", is_lm=False)
     data_collator = SimmcDataCollator(tokenizer)
 

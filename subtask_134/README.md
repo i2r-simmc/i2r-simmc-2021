@@ -63,7 +63,7 @@ python train_bart.py --data_dir $RESPONSE_ONLY_DATA_DIR \
 
 # Generate Output for Retrieval
 ```
-export RETRIEVAL_DATA_DIR=data/preprocess/retrieval
+export RETRIEVAL_DATA_DIR=data/preprocess/retrieval_data
 export RETRIEVAL_OUTPUT_DIR=$model/output_4_input_response_only/retrieval
 python generate_bart_retrieval_score.py --data_dir $RETRIEVAL_DATA_DIR \
 --output_dir $RETRIEVAL_OUTPUT_DIR \
