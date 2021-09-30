@@ -77,7 +77,6 @@ def eval_running_model(dataloader, model, test=False):
     return result, dot_products
     
 
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     ## Required parameters
