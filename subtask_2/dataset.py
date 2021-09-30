@@ -69,16 +69,6 @@ class SelectionDataset(Dataset):
                 text_segment_ids_list_batch.append(text_segment_ids_list)
 
                 labels_batch.append(sample[1])
-
-            '''
-            long_tensors = [text_token_ids_list_batch, text_input_masks_list_batch, text_segment_ids_list_batch]
-
-            text_token_ids_list_batch, text_input_masks_list_batch, text_segment_ids_list_batch = (
-                torch.tensor(t, dtype=torch.long) for t in long_tensors)
-
-            labels_batch = torch.tensor(labels_batch, dtype=torch.long)
-            return text_token_ids_list_batch, text_input_masks_list_batch, text_segment_ids_list_batch, labels_batch
-            '''
             
             text_token_ids_list_batch_tensor = [torch.tensor(t, dtype=torch.long) for t in text_token_ids_list_batch]
             text_input_masks_list_batch_tensor = [torch.tensor(t, dtype=torch.long) for t in text_input_masks_list_batch]
@@ -105,20 +95,7 @@ class SelectionDataset(Dataset):
                 responses_input_masks_list_batch.append(responses_input_masks_list)
 
                 labels_batch.append(sample[-1])
-
-            '''
-            long_tensors = [contexts_token_ids_list_batch, contexts_input_masks_list_batch,
-                                            responses_token_ids_list_batch, responses_input_masks_list_batch]
-
-            contexts_token_ids_list_batch, contexts_input_masks_list_batch, \
-            responses_token_ids_list_batch, responses_input_masks_list_batch = (
-                torch.tensor(t, dtype=torch.long) for t in long_tensors)
-
-            labels_batch = torch.tensor(labels_batch, dtype=torch.long)
-
-            return contexts_token_ids_list_batch, contexts_input_masks_list_batch, \
-                          responses_token_ids_list_batch, responses_input_masks_list_batch, labels_batch
-            '''
+                
             contexts_token_ids_list_batch_tensor = torch.tensor(contexts_token_ids_list_batch, dtype=torch.long)
             contexts_input_masks_list_batch_tensor = torch.tensor(contexts_input_masks_list_batch, dtype=torch.long) 
             responses_token_ids_list_batch_tensor = [torch.tensor(t, dtype=torch.long) for t in responses_token_ids_list_batch]
