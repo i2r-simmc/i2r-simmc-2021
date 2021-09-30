@@ -5,6 +5,8 @@
 
 ## Requirements
 
+- Python 3.8
+
 - Please see requirements.txt.
 
 
