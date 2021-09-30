@@ -25,7 +25,7 @@
 
 1. Download the data from the official challenge [website](https://github.com/facebookresearch/simmc2) and put all the files in [data](https://github.com/facebookresearch/simmc2/tree/master/data) into simmc2_data and unzip all the zip files.
 
-2. Put subtask1_disambigator_submission_format.json from Sub-Task 1 into model_data.
+2. Put subtask_134/output_134/dstc10-simmc-devtest-pred-subtask-1.json from Sub-Task 1 into model_data.
 
 
 ## Preprocess
