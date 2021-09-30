@@ -16,7 +16,9 @@
 
 2. Pick the model you like (I am using uncased_L-4_H-512_A-8.zip) and move it into bert_model/ then unzip it.
 
-3. cd bert_model/ then bash run.sh
+3. cd bert_model/ and change bert_config.json to config.json.
+
+4. bash run.sh
 
 
 ## DSTC 10 Track 3 Data
