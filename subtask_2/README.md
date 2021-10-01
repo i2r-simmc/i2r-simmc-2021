@@ -113,32 +113,32 @@
    python preprocess_teststd.py --input_path_json simmc2_data/simmc2_dials_dstc10_devtest.json --output_path model_data/teststd.txt --eval_target_path model_data/teststd_subtask2_eval_format.json
    ```
 
-2.1. Inference the test-std data using **Bi-Encoder**:
+2. Inference the test-std data using **Bi-Encoder**:
   
-     ```shell
-     python3 run.py --bert_model bert_model/ --output_dir bi-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture bi --eval
+   ```shell
+   python3 run.py --bert_model bert_model/ --output_dir bi-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture bi --eval
    
-     python inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path bi-encoder/dot_product_teststd.txt --subtask1_result model_data/subtask1_disambigator_submission_format.json --predict_path bi-encoder_teststd_predict/bi_teststd_predict.json --target_path bi-encoder_teststd_predict/bi_teststd_target.json --top_k 2
-     ```
+   python inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path bi-encoder/dot_product_teststd.txt --subtask1_result model_data/subtask1_disambigator_submission_format.json --predict_path bi-encoder_teststd_predict/bi_teststd_predict.json --target_path bi-encoder_teststd_predict/bi_teststd_target.json --top_k 2
+   ```
 
-2.2. Inference the test-std data using **Poly-Encoder**:
+3. Inference the test-std data using **Poly-Encoder**:
 
-     ```shell
-     python3 run.py --bert_model bert_model/ --output_dir poly-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture poly --poly_m 16 --eval
+   ```shell
+   python3 run.py --bert_model bert_model/ --output_dir poly-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture poly --poly_m 16 --eval
 
-     python inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path poly-encoder/dot_product_teststd.txt --subtask1_result model_data/subtask1_disambigator_submission_format.json --predict_path poly-encoder_teststd_predict/poly_teststd_predict.json --target_path poly-encoder_teststd_predict/poly_teststd_target.json --top_k 2
-     ```
+   python inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path poly-encoder/dot_product_teststd.txt --subtask1_result model_data/subtask1_disambigator_submission_format.json --predict_path poly-encoder_teststd_predict/poly_teststd_predict.json --target_path poly-encoder_teststd_predict/poly_teststd_target.json --top_k 2
+   ```
 
-3.1. Evaluation the test-std on **Bi-Encoder**:
+4. Evaluation the test-std on **Bi-Encoder**:
    
-     ```shell
-     python -m utils.evaluate_dst --input_path_target=bi-encoder_teststd_predict/bi_teststd_target.json --input_path_predicted=bi-encoder_teststd_predict/bi_teststd_predict.json --output_path_report=bi-encoder_teststd_predict/simmc2_dials_dstc10_report.json
-     ```
+   ```shell
+   python -m utils.evaluate_dst --input_path_target=bi-encoder_teststd_predict/bi_teststd_target.json --input_path_predicted=bi-encoder_teststd_predict/bi_teststd_predict.json --output_path_report=bi-encoder_teststd_predict/simmc2_dials_dstc10_report.json
+   ```
 
-3.2. Evaluation the test-std on **Poly-Encoder**:
+5. Evaluation the test-std on **Poly-Encoder**:
 
-     ```shell
-     python -m utils.evaluate_dst --input_path_target=poly-encoder_teststd_predict/poly_devtest_target.json --input_path_predicted=poly-encoder_teststd_predict/poly_devtest_predict.json --output_path_report=poly-encoder_teststd_predict/simmc2_dials_dstc10_report.json
-     ```
+   ```shell
+   python -m utils.evaluate_dst --input_path_target=poly-encoder_teststd_predict/poly_devtest_target.json --input_path_predicted=poly-encoder_teststd_predict/poly_devtest_predict.json --output_path_report=poly-encoder_teststd_predict/simmc2_dials_dstc10_report.json
+   ```
 
-4. Results of Sub-Task 2on test-std are saved at bi-encoder_teststd_predict/simmc2_dials_dstc10_report.json and poly-encoder_teststd_predict/simmc2_dials_dstc10_report.json. Please refer to object_f1.
+6. Results of Sub-Task 2on test-std are saved at bi-encoder_teststd_predict/simmc2_dials_dstc10_report.json and poly-encoder_teststd_predict/simmc2_dials_dstc10_report.json. Please refer to object_f1.
