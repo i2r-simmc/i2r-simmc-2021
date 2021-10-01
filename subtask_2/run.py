@@ -85,6 +85,7 @@ if __name__ == '__main__':
     parser.add_argument("--model_type", default='bert', type=str)
     parser.add_argument("--output_dir", required=True, type=str)
     parser.add_argument("--train_dir", default='data/ubuntu_data', type=str)
+    parser.add_argument("--test_fname", default='devtest.txt', type=str)
 
     parser.add_argument("--use_pretrain", action="store_true")
     parser.add_argument("--architecture", required=True, type=str, help='[poly, bi, cross]')
@@ -151,7 +152,7 @@ if __name__ == '__main__':
         train_dataloader = DataLoader(train_dataset, batch_size=args.train_batch_size, collate_fn=train_dataset.batchify_join_str, shuffle=True, num_workers=0)
         t_total = len(train_dataloader) // args.gradient_accumulation_steps * args.num_train_epochs
     else: # test
-        val_dataset = SelectionDataset(os.path.join(args.train_dir, 'devtest.txt'),
+        val_dataset = SelectionDataset(os.path.join(args.train_dir, args.test_fname),
                                                                   context_transform, response_transform, concat_transform, sample_cnt=None, mode=args.architecture)
 
     val_dataloader = DataLoader(val_dataset, batch_size=args.eval_batch_size, collate_fn=val_dataset.batchify_join_str, shuffle=False, num_workers=0)
