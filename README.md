@@ -28,7 +28,7 @@ So far our results for devtest set are as followings:
 | :------: | :-------: |
 | GPT2     |   0.366   |
 | MTN-SIMMC2 | - |
-| Our model | TBA |
+| Our model | 0.405 |
 
 | Sub-Task 3 | Dialog Act F1 | Slot F1 | Request Slot F1 | Joint Accuracy |
 | :------: | :-----------: | :-----: | :-------------: | :------------: |
