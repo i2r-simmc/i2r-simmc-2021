@@ -116,7 +116,7 @@
    Preprocess the Test-Std data (if predict the object ids mentioned in all the turns):
    
    ```shell
-   python preprocess_input.py --input_path_json simmc2_data/simmc2_dials_dstc10_teststd_public.json --output_path model_data/teststd.txt --eval_target_path model_data/teststd_subtask2_eval_format.json
+   python preprocess_input.py --input_path_json simmc2_data/simmc2_dials_dstc10_teststd_public.json --scene_folder simmc2_data/simmc2_scene_jsons_dstc10_teststd --output_path model_data/teststd.txt --eval_target_path model_data/teststd_subtask2_eval_format.json
    ```
 
 2. Inference the Test-Std data using **Bi-Encoder**:
