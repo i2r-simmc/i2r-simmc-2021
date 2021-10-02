@@ -107,10 +107,16 @@
 
 ## Test-Std
 
-1. Preprocess the Test-Std data:
+1. Preprocess the Test-Std data (if only predict the object ids mentioned in the last turn):
 
    ```shell
-   python preprocess_teststd.py --input_path_json simmc2_data/simmc2_dials_dstc10_devtest.json --output_path model_data/teststd.txt --eval_target_path model_data/teststd_subtask2_eval_format.json
+   python preprocess_teststd.py --input_path_json simmc2_data/simmc2_dials_dstc10_teststd_public.json --output_path model_data/teststd.txt --eval_target_path model_data/teststd_subtask2_eval_format.json
+   ```
+   
+   Preprocess the Test-Std data (if predict the object ids mentioned in all the turns):
+   
+   ```shell
+   python preprocess_input.py --input_path_json simmc2_data/simmc2_dials_dstc10_teststd_public.json --output_path model_data/teststd.txt --eval_target_path model_data/teststd_subtask2_eval_format.json
    ```
 
 2. Inference the Test-Std data using **Bi-Encoder**:
@@ -132,13 +138,13 @@
 4. Evaluation the Test-Std data on **Bi-Encoder**:
    
    ```shell
-   python -m utils.evaluate_dst --input_path_target=bi-encoder_teststd_predict/bi_teststd_target.json --input_path_predicted=bi-encoder_teststd_predict/bi_teststd_predict.json --output_path_report=bi-encoder_teststd_predict/simmc2_dials_dstc10_report.json
+   python -m utils.evaluate_dst --input_path_target=bi-encoder_teststd_predict/bi_teststd_target.json --input_path_predicted=bi-encoder_teststd_predict/bi_teststd_predict.json --output_path_report=bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json
    ```
 
 5. Evaluation the Test-Std data on **Poly-Encoder**:
 
    ```shell
-   python -m utils.evaluate_dst --input_path_target=poly-encoder_teststd_predict/poly_teststd_target.json --input_path_predicted=poly-encoder_teststd_predict/poly_teststd_predict.json --output_path_report=poly-encoder_teststd_predict/simmc2_dials_dstc10_report.json
+   python -m utils.evaluate_dst --input_path_target=poly-encoder_teststd_predict/poly_teststd_target.json --input_path_predicted=poly-encoder_teststd_predict/poly_teststd_predict.json --output_path_report=poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json
    ```
 
-6. Results of Sub-Task 2 on the Test-Std data are saved at bi-encoder_teststd_predict/simmc2_dials_dstc10_report.json and poly-encoder_teststd_predict/simmc2_dials_dstc10_report.json. Please refer to object_f1.
+6. Results of Sub-Task 2 on the Test-Std data are saved at bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json and poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json. Please refer to object_f1.
