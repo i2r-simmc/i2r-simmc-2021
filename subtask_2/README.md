@@ -124,7 +124,7 @@
    ```shell
    python3 run.py --bert_model bert_model/ --output_dir bi-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture bi --eval
    
-   python inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path bi-encoder/dot_product_teststd.txt --subtask1_result model_data/subtask1_disambigator_submission_format.json --predict_path bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --top_k 2
+   python teststd_inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path bi-encoder/dot_product_teststd.txt --subtask1_result model_data/subtask1_disambigator_submission_format.json --predict_path bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --top_k 2
    ```
 
 3. Inference the Test-Std data using **Poly-Encoder**:
@@ -132,11 +132,11 @@
    ```shell
    python3 run.py --bert_model bert_model/ --output_dir poly-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture poly --poly_m 16 --eval
 
-   python inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path poly-encoder/dot_product_teststd.txt --subtask1_result model_data/subtask1_disambigator_submission_format.json --predict_path poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --top_k 2
+   python teststd_inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path poly-encoder/dot_product_teststd.txt --subtask1_result model_data/subtask1_disambigator_submission_format.json --predict_path poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --top_k 2
    ```
 
 4. Evaluation the Test-Std data on **Bi-Encoder** and **Poly-Encoder**:
    
-   Please use python -m utils.evaluate_dst 
+   Predicted object ids are saved at bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json for Bi-Encoder and poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json for Poly-Encoder, respectively. Please use utils.evaluate_dst for the evaluation.
 
 5. For the results of Sub-Task 2 on the Test-Std data, please refer to object_f1.
