@@ -81,9 +81,7 @@ if __name__ == '__main__':
                 return_obj_num = len(predicts)
             for j in range(return_obj_num):
                 predict_objs.append(predict_sorted[j][0]) 
-        else:
-            for j in range(args.top_k):
-                predict_objs.append(predict_sorted[j][0])
+        
         dialog_predict.append({
             "transcript_annotated": {
                 'act': '',
