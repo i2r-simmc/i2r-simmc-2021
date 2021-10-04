@@ -109,13 +109,7 @@
 
 1. Put subtask_134/output_134/dstc10-simmc-teststd-pred-subtask-1.json from Sub-Task 1 into model_data.
 
-2. Preprocess the Test-Std data (if only predict the object ids mentioned in the last turn):
-
-   ```shell
-   python preprocess_teststd.py --input_path_json simmc2_data/simmc2_dials_dstc10_teststd_public.json --output_path model_data/teststd.txt --eval_target_path model_data/teststd_subtask2_eval_format.json
-   ```
-   
-   Preprocess the Test-Std data (if predict the object ids mentioned in all the turns):
+2. Preprocess the Test-Std data:
    
    ```shell
    python preprocess_input.py --input_path_json simmc2_data/simmc2_dials_dstc10_teststd_public.json --scene_folder simmc2_data/simmc2_scene_jsons_dstc10_teststd --output_path model_data/teststd.txt --eval_target_path model_data/teststd_subtask2_eval_format.json
