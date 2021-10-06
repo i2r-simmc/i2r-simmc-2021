@@ -107,7 +107,7 @@
 
 ## Test-Std
 
-1. Put subtask_134/output_134/dstc10-simmc-teststd-pred-subtask-1.json from Sub-Task 1 into model_data.
+1. Put subtask_134/output_134/teststd/dstc10-simmc-teststd-pred-subtask-1-full-turn.json from Sub-Task 1 into model_data.
 
 2. Preprocess the Test-Std data:
    
