@@ -60,7 +60,7 @@ bash ./train_bart_multiple_settings.sh
 
 For Sub-Task 4 retrieval, we run as followings:
 
-# Train:
+Train:
 ```
 export RESPONSE_ONLY_DATA_DIR=data/preprocess/response_only
 export RESPONSE_ONLY_SAVE_DIR=model/output_4_input_response_only
@@ -68,7 +68,7 @@ python train_bart.py --data_dir $RESPONSE_ONLY_DATA_DIR \
 --output_dir $RESPONSE_ONLY_SAVE_DIR
 ```
 
-# Generate Output for Retrieval
+ Generate Output for Retrieval
 ```
 export RETRIEVAL_DATA_DIR=data/preprocess/retrieval_data
 export RETRIEVAL_OUTPUT_DIR=model/output_4_input_response_only/retrieval
