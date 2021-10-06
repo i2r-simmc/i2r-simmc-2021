@@ -9,11 +9,12 @@ for generating outputs of the Sub-Task #4 Retrieval, called retrieval model.
 The retrieval model trains on Sub-Task 4 only. 
 The two models are trained and evaluated separately. Please refer to folder `subtask_134` for further details.
 
-For Sub-Task 2, TBA
+For Sub-Task 2, we developed Bi-Encoder and Poly-Encoder based models (Humeau et al., 2020). We regard the objects in the corresponding scenes as the candidate objects. We regard the previous system transcript and current user transcript as the context. And for each candidate object, we compute the dot-product between it and the context. If Sub-Task 1 returns a binary label (0 or 1) for the current turn, Sub-Task 2 will return top-K (K=2 as default) object IDs as the results. Please refer to folder `subtask_2` for further details.
 
 # Important Links
 
 * [Instructions for Sub-Tasks 1, 3, and 4](subtask_134/README.md)
+* [Instructions for Sub-Tasks 2](subtask_2/README.md)
 
 # Results
 So far our results for devtest set are as followings:
@@ -28,7 +29,7 @@ So far our results for devtest set are as followings:
 | :------: | :-------: |
 | GPT2     |   0.366   |
 | MTN-SIMMC2 | - |
-| Our model | TBA |
+| Our model | 0.405 |
 
 | Sub-Task 3 | Dialog Act F1 | Slot F1 | Request Slot F1 | Joint Accuracy |
 | :------: | :-----------: | :-----: | :-------------: | :------------: |
