@@ -9,7 +9,7 @@ for generating outputs of the Sub-Task #4 Retrieval, called retrieval model.
 The retrieval model trains on Sub-Task 4 only. 
 The two models are trained and evaluated separately. Please refer to folder `subtask_134` for further details.
 
-For Sub-Task 2, we developed Bi-Encoder and Poly-Encoder based models (Humeau et al., 2020). We regard the objects in the corresponding scenes as the candidate objects. We regard the previous system transcript and current user transcript as the context. And for each candidate object, we compute the dot-product between it and the context. If Sub-Task 1 returns a binary label (0 or 1) for the current turn, Sub-Task 2 will return top-2 object IDs as the results. Please refer to folder `subtask_2` for further details.
+For Sub-Task 2, we developed Bi-Encoder and Poly-Encoder based models (Humeau et al., 2020). We regard the objects in the corresponding scenes as the candidate objects. We regard the previous system transcript and current user transcript as the context. And for each candidate object, we compute the dot-product between it and the context. If Sub-Task 1 returns a binary label (0 or 1) for the current turn, Sub-Task 2 will return top-k object IDs as the results. Please refer to folder `subtask_2` for further details.
 
 # Important Links
 
