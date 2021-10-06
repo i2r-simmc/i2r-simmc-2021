@@ -120,7 +120,7 @@
    ```shell
    python3 run.py --bert_model bert_model/ --output_dir bi-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture bi --eval
    
-   python teststd_inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path bi-encoder/dot_product_teststd.txt --subtask1_result model_data/dstc10-simmc-teststd-pred-subtask-1.json --predict_path bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --top_k 2
+   python teststd_inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path bi-encoder/dot_product_teststd.txt --subtask1_result model_data/dstc10-simmc-teststd-pred-subtask-1-full-turn.json --predict_path bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --top_k 2
    ```
 
 4. Inference the Test-Std data using **Poly-Encoder**:
@@ -128,7 +128,7 @@
    ```shell
    python3 run.py --bert_model bert_model/ --output_dir poly-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture poly --poly_m 16 --eval
 
-   python teststd_inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path poly-encoder/dot_product_teststd.txt --subtask1_result model_data/dstc10-simmc-teststd-pred-subtask-1.json --predict_path poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --top_k 2
+   python teststd_inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path poly-encoder/dot_product_teststd.txt --subtask1_result model_data/dstc10-simmc-teststd-pred-subtask-1-full-turn.json --predict_path poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --top_k 2
    ```
 
 5. Evaluation the Test-Std data on **Bi-Encoder** and **Poly-Encoder**:
