@@ -39,6 +39,13 @@ For retrieval task, we run the following code
 ```
 bash ./run_preprocess_gpt2_retrieval_separate_predict_target.sh
 ```
+
+All the codes above are for the `train/dev/devtest` set. For `teststd`, we run the following codes to prepare data:
+```
+bash run_preprocess_gpt2_teststd.sh
+bash run_preprocess_gpt2_retrieval_separate_predict_target_teststd.sh
+```
+
 # Train and Inference:
 For the multitask model, we run as followings:
 ```
@@ -89,6 +96,27 @@ cp data/original/simmc2_dials_dstc10_devtest.json output_134/
 cp data/original/simmc2_dials_dstc10_devtest_retrieval_candidates.json output_134/ 
 ```
 
+# Generate Output for `teststd`
+
+```
+mkdir output_134/teststd
+python generate_bart_test.py \
+--data_dir data/preprocess/teststd \
+--model_name_or_path model/output_1_3_4_input_response_only/ \
+--output_dir output_134/test_std/output
+
+python generate_bart_retrieval_score_test.py \
+--data_dir data/preprocess/teststd/retrieval/ \
+--output_dir output_134/teststd/retrieval/output \
+--model_name_or_path model/output_4_input_response_only/
+
+
+cp output_134/test_std/output/predictions.text output_134/test_std/predictions.text
+cp output_134/test_std/retrieval/output/retrieval_scores.txt output_134/test_std/retrieval_scores.txt
+cp data/preprocess/teststd/retrieval/simmc2_dials_dstc10_teststd_dialog_turn_id.json output_134/test_std/simmc2_dials_dstc10_teststd_dialog_turn_id.json 
+```
+
+
 # Convert Output to Submission Format
 **For subtask 1**
 ```
@@ -124,6 +152,15 @@ python generate_submission_format_retrieval.py \
 --model_flat_score_path output_134/devtest_retrieval_scores.txt \
 --output_submission_format_path output_134/dstc10-simmc-devtest-pred-subtask-4-retrieval.json
 ```
+
+#For ``teststd``
+```
+bash generate_submission_format_task1.sh
+bash generate_submission_format_task3.sh
+bash generate_submission_format_task4_generation.sh
+bash generate_submission_format_task4_retrieval.sh
+```
+
 # Evaluation:
 **For subtask 1**
 ```
@@ -156,5 +193,7 @@ python utils/retrieval_evaluation.py \
 --model_score_path output_134/dstc10-simmc-devtest-pred-subtask-4-retrieval.json \
 --single_round_evaluation
 ```
-Currently, there are some issues with official evaluation scripts (need to verify)
-https://github.com/facebookresearch/simmc2/issues/40
+
+[comment]: <> (Currently, there are some issues with official evaluation scripts &#40;need to verify&#41;)
+
+[comment]: <> (https://github.com/facebookresearch/simmc2/issues/40)
