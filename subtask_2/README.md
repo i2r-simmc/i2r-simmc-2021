@@ -133,7 +133,7 @@
 
 5. Evaluation the Test-Std data on **Bi-Encoder** and **Poly-Encoder**:
    
-   Predicted object ids are saved at bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json for Bi-Encoder and poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json for Poly-Encoder, respectively. Please use utils.evaluate_dst for the evaluation.
+   Predicted object ids are saved at bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json for Bi-Encoder and poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json for Poly-Encoder, respectively. Please use utils.evaluate_dst for the evaluation. Please note that since dstc10-simmc-teststd-pred-subtask-2.json only contains the results of Sub-Task 2, if directly use the original simm2/model/mm_dst/util/evaluate_dst.py, there will be division by zero error. I revised evaluate_dst.py by adding an if-else sentence. In funtion **d_f1**, ``r = n_correct / n_true`` is changed to ``r = n_correct / n_true if n_true != 0 else 0`` and ``p = n_correct / n_pred`` is changed to ``p = n_correct / n_pred if n_pred != 0 else 0``. In function **b_stderr**, ``return np.std(b_arr(n_total, n_pos)) / np.sqrt(n_total)`` is changed to ``np.std(b_arr(n_total, n_pos)) / np.sqrt(n_total) if n_total != 0 else 0``.
 
 6. For the results of Sub-Task 2 on the Test-Std data, please refer to object_f1.
 
