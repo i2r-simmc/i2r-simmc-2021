@@ -133,7 +133,7 @@
 
 5. Evaluation the Test-Std data on **Bi-Encoder** and **Poly-Encoder**:
    
-   Predicted object ids are saved at bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json for Bi-Encoder and poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json for Poly-Encoder, respectively. Please use utils.evaluate_dst for the evaluation. Note that ``***.json`` is the json file contains the ground-truth of Test-Std.
+   Predicted object ids are saved at bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json for Bi-Encoder and poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json for Poly-Encoder, respectively. Please use utils.evaluate_dst for the evaluation. Note that ``***.json`` is the json file contains the ground-truth of Test-Std. Please replace it with the real json file containing ground-truth object IDs of Test-Std.
    
    ```shell
    python -m utils.evaluate_dst --input_path_target=***.json --input_path_predicted=bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --output_path_report=bi-encoder_teststd_predict/simmc2_dials_dstc10_report.json
