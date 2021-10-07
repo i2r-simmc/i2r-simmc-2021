@@ -48,3 +48,6 @@ So far our results for devtest set are as followings:
 | Random   |   0.052   |   0.010   |   0.050   |   0.100   |   50.0   |
 | GPT2     |   0.088   |   0.026   |   0.107   |   0.184   |   38.0   |
 | Our model     |   0.666   |   0.558   |   0.799   |   0.876   |   5.6   |
+
+# Output json files of Sub-Task 1, 2, 3 and 4 for Test-Std
+We put the required json files for Sub-Task 1, 2, 3 and 4 under folder ``outputs``. Please use them for evaluation. Note that for Sub-Task 2, please use ``subtask_2/utils/evaluate_dst.py`` for evaluation. Please refer to ``subtask_2/README.md Test-Std``.
