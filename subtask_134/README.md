@@ -132,7 +132,7 @@ python generate_submission_format_disambiguator_134.py \
 python generate_submission_format_belief_state_134.py \
 --dialog_turn_id_json_path output_134/simmc2_dials_dstc10_devtest_dialog_turn_id.json \
 --generated_text_path output_134/predictions.txt \
---output_submission_format_path output_134/dstc10-simmc-devtest-pred-subtask-3.json
+--output_submission_format_path output_134/dstc10-simmc-devtest-pred-subtask-only-3.json
 ```
 
 **For subtask 4 (Generation)**
@@ -173,7 +173,7 @@ python utils/disambiguator_evaluation.py \
 ```
 python utils/evaluate_dst.py \
 --input_path_target output_134/simmc2_dials_dstc10_devtest.json \
---input_path_predicted output_134/dstc10-simmc-devtest-pred-subtask-3.json
+--input_path_predicted output_134/dstc10-simmc-devtest-pred-subtask-only-3.json
 ```
 
 **For subtask 4 (Generation)**
