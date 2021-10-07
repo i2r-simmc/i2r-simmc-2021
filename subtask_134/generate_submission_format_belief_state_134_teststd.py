@@ -16,8 +16,8 @@ def write_submission_output(dialog_turn_id_data, generation_texts, output_submis
             # _flat_id=_turn['flat_id']
             predicted_text = generation_texts[count]
             count+=1
-            _dialog.append({"turn_id":turn_id, "transcript_annotated":predicted_text})
-        submission_format_output["dialogue_data"].append({"dialog_id":dialog["dialog_id"],
+            _dialog.append({"turn_idx":turn_id, "transcript_annotated":predicted_text})
+        submission_format_output["dialogue_data"].append({"dialogue_idx":dialog["dialog_id"],
                                          "dialogue":_dialog})
 
     with open(output_submission_format_path, "w") as f_generation_submission_format:
