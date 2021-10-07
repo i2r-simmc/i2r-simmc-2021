@@ -54,13 +54,13 @@
 1. Train a **Bi-Encoder**:
 
    ```shell
-   python3 run.py --bert_model bert_model/ --output_dir bi-encoder/ --train_dir model_data/ --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture bi
+   python3 run.py --bert_model bert_model/ --output_dir bi-encoder/ --train_dir model_data/ --max_contexts_length 128 --max_response_length 256 --use_pretrain --architecture bi
    ```
 
 2. Train a **Poly-Encoder** with 16 codes:
 
    ```shell
-   python3 run.py --bert_model bert_model/ --output_dir poly-encoder/ --train_dir model_data/ --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture poly --poly_m 16
+   python3 run.py --bert_model bert_model/ --output_dir poly-encoder/ --train_dir model_data/ --max_contexts_length 128 --max_response_length 256 --use_pretrain --architecture poly --poly_m 16
    ```
 
 
@@ -69,7 +69,7 @@
 1. Test on **Bi-Encoder**:
 
    ```shell
-   python3 run.py --bert_model bert_model/ --output_dir bi-encoder/ --train_dir model_data/ --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture bi --eval
+   python3 run.py --bert_model bert_model/ --output_dir bi-encoder/ --train_dir model_data/ --max_contexts_length 128 --max_response_length 256 --use_pretrain --architecture bi --eval
 
    python inference.py --target_format_json model_data/devtest_subtask2_eval_format.json --dot_product_path bi-encoder/dot_product_devtest.txt --subtask1_result model_data/dstc10-simmc-devtest-pred-subtask-1.json --predict_path bi-encoder_predict/bi_devtest_predict.json --target_path bi-encoder_predict/bi_devtest_target.json --top_k 2
    ```
@@ -77,7 +77,7 @@
 2. Test on **Poly-Encoder** with 16 codes:
 
    ```shell
-   python3 run.py --bert_model bert_model/ --output_dir poly-encoder/ --train_dir model_data/ --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture poly --poly_m 16 --eval
+   python3 run.py --bert_model bert_model/ --output_dir poly-encoder/ --train_dir model_data/ --max_contexts_length 128 --max_response_length 256 --use_pretrain --architecture poly --poly_m 16 --eval
 
    python inference.py --target_format_json model_data/devtest_subtask2_eval_format.json --dot_product_path poly-encoder/dot_product_devtest.txt --subtask1_result model_data/dstc10-simmc-devtest-pred-subtask-1.json --predict_path poly-encoder_predict/poly_devtest_predict.json --target_path poly-encoder_predict/poly_devtest_target.json --top_k 2
    ```
@@ -118,7 +118,7 @@
 3. Inference the Test-Std data using **Bi-Encoder**:
   
    ```shell
-   python3 run.py --bert_model bert_model/ --output_dir bi-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture bi --eval
+   python3 run.py --bert_model bert_model/ --output_dir bi-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 128 --max_response_length 256 --use_pretrain --architecture bi --eval
    
    python teststd_inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path bi-encoder/dot_product_teststd.txt --subtask1_result model_data/dstc10-simmc-teststd-pred-subtask-1-full-turn.json --predict_path bi-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --top_k 2
    ```
@@ -126,7 +126,7 @@
 4. Inference the Test-Std data using **Poly-Encoder**:
 
    ```shell
-   python3 run.py --bert_model bert_model/ --output_dir poly-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 64 --max_response_length 256 --use_pretrain --architecture poly --poly_m 16 --eval
+   python3 run.py --bert_model bert_model/ --output_dir poly-encoder/ --train_dir model_data/ --test_fname teststd.txt --dot_product_outfname dot_product_teststd.txt --max_contexts_length 128 --max_response_length 256 --use_pretrain --architecture poly --poly_m 16 --eval
 
    python teststd_inference.py --target_format_json model_data/teststd_subtask2_eval_format.json --dot_product_path poly-encoder/dot_product_teststd.txt --subtask1_result model_data/dstc10-simmc-teststd-pred-subtask-1-full-turn.json --predict_path poly-encoder_teststd_predict/dstc10-simmc-teststd-pred-subtask-2.json --top_k 2
    ```
